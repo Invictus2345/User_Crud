@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+</head>
+<style>
+    h1{
+    display: flex;
+    justify-content: center;
+    border: rebeccapurple, solid, 2px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#form_box{
+    display: flex;
+    justify-content: center;
+}
+#form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 500px;
+}
+
+input[type=text], textarea {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #DDDDDD;
+}
+
+input[type=text]:focus, textarea:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+
+</style>
+<body>
+    <h1>Edit User {{user.id}}</h1>
+    <div id="form_box">
+        <form action="/update/" method="post" id="form">
+            <input type="hidden" name="id" value={{user.id}}>
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" id="first_name" value="{{user.first_name}}" >
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" id="last_name" value="{{user.last_name}}" >
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" value="{{user.email}}" >
+            <input type="submit" value="Update User" id="update_user_button"> <a href="/user/show/{{user.id}}">Show User</a>
+        </form>
+    </div>
+</body>
+</html>
